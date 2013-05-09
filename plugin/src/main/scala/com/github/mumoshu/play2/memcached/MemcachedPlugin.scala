@@ -154,8 +154,6 @@ class MemcachedPlugin(app: Application) extends CachePlugin {
   }
 
   override def onStop() {
-    logger.info("Stopping MemcachedPlugin.")
-    client.shutdown
     Thread.interrupted()
   }
 }
