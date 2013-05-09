@@ -48,7 +48,8 @@ class MemcachedPlugin(app: Application) extends CachePlugin {
     val addrs = singleHost.orElse(multipleHosts)
       .getOrElse(throw new RuntimeException("Bad configuration for memcached: missing host(s)"))
 
-    app.configuration.getString("memcached.user").map { memcacheUser =>
+    val memcacheUserOpt = if(app.configuration.getString("memcached.user").isDefined && !app.configuration.getString("memcached.user").get.isEmpty) app.configuration.getString("memcached.user") else None
+    memcacheUserOpt.map { memcacheUser =>
       val memcachePassword = app.configuration.getString("memcached.password").getOrElse {
         throw new RuntimeException("Bad configuration for memcached: missing password")
       }
