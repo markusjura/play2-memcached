@@ -142,6 +142,8 @@ To enable namespacing, configure it in "application.conf":
 
 0.3.0.3 Updated spymemcached to 2.9.0 which solves the authentication issues.
 
+0.3.0.4 Updated spymemcached to 2.9.1
+
 ### Acknowledgement
 
 Thanks to gakuzzzz for the original idea of "namespacing" and the initial pull request for it.

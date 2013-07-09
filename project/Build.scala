@@ -5,7 +5,7 @@ import play.Project._
 object ApplicationBuild extends Build {
 
   val appName         = "play2-memcached"
-  val appVersion      = "0.3.0.3"
+  val appVersion      = "0.3.0.4"
   val appScalaVersion = "2.10.0"
   val appScalaBinaryVersion = "2.10"
   val appScalaCrossVersions = Seq("2.10.0")
@@ -29,8 +29,8 @@ object ApplicationBuild extends Build {
     .settings(
       resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
       resolvers += "Spy Repository" at "http://files.couchbase.com/maven2",
-      libraryDependencies += "net.spy" % "spymemcached" % "2.9.0",
-      libraryDependencies += "play" %% "play" % "2.1.0" % "provided",
+      libraryDependencies += "net.spy" % "spymemcached" % "2.9.1",
+      libraryDependencies += "play" %% "play" % "2.1.1" % "provided",
       organization := "com.github.mumoshu",
       version := appVersion,
       publishTo <<= version { v: String =>
@@ -51,14 +51,14 @@ object ApplicationBuild extends Build {
             </license>
           </licenses>
           <scm>
-            <url>git@github.com:mumoshu/play2-memcached.git</url>
-            <connection>scm:git:git@github.com:mumoshu/play2-memcached.git</connection>
+            <url>git@github.com:markusjura/play2-memcached.git</url>
+            <connection>scm:git:git@github.com:markusjura/play2-memcached.git</connection>
           </scm>
           <developers>
             <developer>
               <id>you</id>
               <name>KUOKA Yusuke</name>
-              <url>https://github.com/mumoshu</url>
+              <url>https://github.com/markusjura</url>
             </developer>
           </developers>
         )
