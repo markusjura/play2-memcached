@@ -73,7 +73,7 @@ class MemcachedPlugin(app: Application) extends CachePlugin {
   }
 
   import java.io._
-  
+
   class CustomSerializing extends SerializingTranscoder{
 
     // You should not catch exceptions and return nulls here,
@@ -94,7 +94,7 @@ class MemcachedPlugin(app: Application) extends CachePlugin {
       new ObjectOutputStream(bos).writeObject(obj)
       bos.toByteArray()
     }
-  } 
+  }
 
   lazy val tc = new CustomSerializing().asInstanceOf[Transcoder[Any]]
 
@@ -122,7 +122,7 @@ class MemcachedPlugin(app: Application) extends CachePlugin {
           }
         )
       } catch {
-        case e =>
+        case e: Throwable =>
           logger.error("An error has occured while getting the value from memcached" , e)
           future.cancel(false)
           None
@@ -137,7 +137,7 @@ class MemcachedPlugin(app: Application) extends CachePlugin {
       client.delete(namespace + key)
     }
   }
-  
+
   lazy val namespace: String = app.configuration.getString("memcached.namespace").getOrElse("")
 
   /**
